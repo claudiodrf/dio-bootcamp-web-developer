@@ -1,2 +1,2 @@
-# Repositório de Projeto do Desafio Git/GitHub Dio Bootcamp Web Developer
+# Repositório de Projeto do Desafio Git/GitHub DIO
 Desafio de Projetos Git/GitHub
