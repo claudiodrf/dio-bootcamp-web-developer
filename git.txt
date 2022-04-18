@@ -1,0 +1,166 @@
+// adicionar o repositório ao VScode
+// git remote add origin https://github.com/*****/nome-do-repositorio.git
+git remote add origin https://github.com/claudiodrf/fundamentos-js.git
+
+
+git push origin master
+git pull origin master --allow-unrelated-histories
+
+SHA
+- A sigla SHA significa Secure Has Algorithm (Algoritmo de Has Seguro), é um conjunto de funções hash criptográficas projetadas pela NSA (Agência de Segurança  Nacional dos EUA).
+- A encriptação gera conjunto de characteres identificador de 40 dígitos. 
+- É uma forma curta de  representar um arquivo.
+
+1 echo "Ola mundo" | openssl sha1
+2 > (stdin) = f9fc856e559b950175f2b7cd7dad61facbe58e7b
+
+$ openssl sha1 texto.txt
+SHA1(texto.txt)= 26a9ed1a1187f8c4fc3765c4a1f3608e68e582ad
+$ openssl sha1 texto.txt
+SHA1(texto.txt)= 3a43ea082591f3f709f27f5116a05f730c4e20ba
+$ openssl sha1 texto.txt
+SHA1(texto.txt)= 0f65b1eefbda79703c4115e481e9f27cec13dd1c
+
+Objetos fundamentais:
+
+- blobs
+echo 'conteudo' | git hash-object -- stdin
+echo -e 'blob 9\0conteudo' | openssl sha1
+echo -e 'conteudo' | openssl sha1
+
+- tree
+
+- commit
+commit <tamanho>
+tree s4a5sq1
+parente a98acq1
+autor fulano
+mensagem "inicia..."
+timestamp
+
+O SHA1 desse commit é o hash de toda a essa informação.
+Git é um sistema distribuío seguro.
+
+- Chaves SSH e Tokens
+-- Chave SSH
+-- No GitHub
+--- Perfil / Settings / SSH and GPG keys
+ssh-keygen -t ed25519 -C seuemail@email.com
+cd /c/Users/Nome/.ssh/
+ls
+id_25519 id_ed25519.pub
+cat  id_ed25519.pub
+eval $(ssh-agent -s)
+
+ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGNGMoURU+Nowhx9uH8Tc7nfdNTe4kjCNbSewv0vn9uc claudiodrf@gmail.com
+
+eval $(ssh-agent -s)
+ssh-add id_ed25519
+Enter passphrase for id_ed25519:
+Identity added: id_ed25519 (seuemail@email.com)
+
+git clone git@github.com:claudiodrf/fundamentos-js.git
+
+- Token de acesso pessoal
+- No GitHub
+-- Perfil / Settings / Developer settings / Personal access tokens / Generate new tokens / Note: ***** / Expiration / repo / Generate token
+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
+
+- Code / HTTPS
+git clone https://github.com/claudiodrf/fundamentos-js.git
+
+: Primeiros comandos Git
+- Iniciar o Git
+git init
+ls -a
+git config --global user.email "claudiodrf@gmail.com"
+git config --global user.name claudiodrf
+
+git add * 
+git commit -m "commit inicial"
+[master (root-commit) 8b13a2b] commit inicial
+ 1 file changed, 39 insertions(+)
+ create mode 100644 strogonoff.md
+
+- Ciclo de vida dos arquivos
+	- untracket
+	- tracket (unmodified, modified, staged)
+
+	- Servidor
+		- Remote repository
+
+	- Ambiente de desenvolvimento	
+		- Working directory
+		- Staging area
+		- Local repository 
+git status
+On branch master
+nothing to commit, working tree clean
+
+On branch master
+Changes not staged for commit:
+  (use "git add/rm <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        deleted:    strogonoff.md
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        receitas/
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+git add 
+
+$ git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        renamed:    strogonoff.md -> receitas/strogonoff.md
+
+git add * (untracket e/ou unmodified e/ou modified -> stage)
+git add . (untracket e/ou unmodified e/ou modified -> stage)
+git add nameFile (untracket e/ou unmodified e/ou modified -> stage)
+
+git commit -m "msg" (staged -> unmodified)
+
+
+// GitHub
+
+ git config --list
+git remote -v
+
+…or create a new repository on the command line
+echo "# livro-receitas" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/claudiodrf/livro-receitas.git
+git push -u origin main
+
+…or push an existing repository from the command line
+git remote add origin https://github.com/claudiodrf/livro-receitas.git
+git branch -M main
+git push -u origin main
+
+…or import code from another repository
+You can initialize this repository with code from a Subversion, Mercurial, or TFS project.
+
+$ git push origin master
+Enumerating objects: 8, done.
+Counting objects: 100% (8/8), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (6/6), done.
+Writing objects: 100% (8/8), 1.11 KiB | 284.00 KiB/s, done.
+Total 8 (delta 0), reused 0 (delta 0), pack-reused 0
+To https://github.com/claudiodrf/livro-receitas.git
+ * [new branch]      master -> master
+
+
+- Resolvendo Conflitos
+
+
+
+
+
+
